@@ -1,0 +1,93 @@
+body {
+    background-color: #bad4e6;
+}
+
+#playspace {
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 450px;
+    margin: auto;
+}
+
+#board div {
+    height: 150px;
+    width: 150px;
+}
+
+#top-left {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#top-middle {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#top-right {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#left {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#middle {
+    border: 1px solid black;
+}
+
+#right {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#bottom-left {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#bottom-middle {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#bottom-right {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+
+#scores {
+    display: flex;
+    justify-content: center;
+}
+
+#scores p {
+    margin: 10px;
+    margin-top: 50px;;
+}
+
+p {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+button {
+    display: block;
+    margin: auto;
+}
