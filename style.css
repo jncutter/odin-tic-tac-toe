@@ -23,52 +23,21 @@ h1 {
     width: 150px;
 }
 
-#top-left {
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-}
-
-#top-middle {
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-}
-
-#top-right {
-    border-left: 1px solid black;
+#top-left, #top-middle, #top-right, #left, #middle, #right {
     border-bottom: 1px solid black;
 }
 
-#left {
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-#middle {
-    border: 1px solid black;
-}
-
-#right {
+#top-middle, #top-right, #middle, #right, #bottom-middle, #bottom-right {
     border-left: 1px solid black;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
 }
 
-#bottom-left {
+
+#left, #middle, #right, #bottom-left, #bottom-middle, #bottom-right {
     border-top: 1px solid black;
+}
+
+#top-left, #top-middle, #left, #middle, #bottom-left, #bottom-middle {
     border-right: 1px solid black;
-}
-
-#bottom-middle {
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-}
-
-#bottom-right {
-    border-left: 1px solid black;
-    border-top: 1px solid black;
 }
 
 #scores {
