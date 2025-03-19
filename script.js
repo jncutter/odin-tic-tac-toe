@@ -48,18 +48,19 @@ const gameBoard = [
 
 function createPlayer(name) {
     const playerName = name;
+
     let score = 0;
-    const addScore = () => score++;
     const getScore = () => score;
+    const addScore = () => score++;
 
     return {playerName, getScore, addScore};
-}
+} //this works how expected
 
 function gameWin() {
     console.log('somebody won');
 }
 
-const players = [createPlayer('player one'), createPlayer('player two')];
+const player = [createPlayer('X'), createPlayer('O')];
 
 const postions = gameBoard.map(obj => obj.position);
 const availibility = gameBoard.map(obj => obj.available);
