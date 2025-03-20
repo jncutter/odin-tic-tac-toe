@@ -1,3 +1,18 @@
+let topLeft = document.getElementById('top-left');
+let topMiddle = document.getElementById('top-middle');
+let topRight = document.getElementById('top-right');
+let left = document.getElementById('left');
+let middle = document.getElementById('middle');
+let right = document.getElementById('right');
+let bottomLeft = document.getElementById('bottom-left');
+let bottomMiddle = document.getElementById('bottom-middle');
+let bottomRight = document.getElementById('bottom-right');
+
+let xScore = document.getElementById('x-score');
+let oScore = document.getElementById('o-score');
+
+let reset = document.getElementById('reset');
+
 const gameBoard = [
     {
         position: 'topLeft',
