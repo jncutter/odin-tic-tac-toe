@@ -40,6 +40,12 @@ h1 {
     border-right: 1px solid black;
 }
 
+.square {
+    font-family: sans-serif;
+    font-size: 8rem;
+    text-align: center;
+}
+
 #scores {
     display: flex;
     justify-content: center;
