@@ -71,6 +71,12 @@ function createPlayer(name) {
     return {playerName, getScore, addScore};
 } //this works how expected
 
+function gameState() {
+    for (let i = 1; i < 9; i++) {
+
+    }
+}
+
 function gameWin() {
     console.log('somebody won');
 }
