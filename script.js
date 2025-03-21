@@ -82,18 +82,20 @@ const availibility = gameBoard.map(obj => obj.available);
 const spaceValue = gameBoard.map(obj => obj.value);
 
 function playTurn() {
+    if (col1.every(v => v === col1[0]) || col2.every(v => v === col2[0]) || col3.every(v => v === col3[0]) || row1.every(v => v === row1[0]) || row2.every(v => v === row2[0]) || row3.every(v => v === row3[0]) || diag1.every(v => v === diag1[0]) || diag2.every(v => v === diag2[0])) {
 
+    }
 }
 
-function gameOver() {
-    console.log('the game is over');
+function gameDraw() {
+    
 }
 
 function gameState() {
     if(availibility.every(v => v === false)) {
-        gameOver();
+        gameDraw();
     } else {
-        
+        playTurn();
     }
 }
 
@@ -117,5 +119,5 @@ let diag1 = [spaceValue[0], spaceValue[4], spaceValue[8]];
 let diag2 = [spaceValue[2], spaceValue[4], spaceValue[6]];
 
 if (col1.every(v => v === col1[0]) || col2.every(v => v === col2[0]) || col3.every(v => v === col3[0]) || row1.every(v => v === row1[0]) || row2.every(v => v === row2[0]) || row3.every(v => v === row3[0]) || diag1.every(v => v === diag1[0]) || diag2.every(v => v === diag2[0])) {
-    gameWin();
+
 }
