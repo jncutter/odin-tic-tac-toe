@@ -81,11 +81,19 @@ const postions = gameBoard.map(obj => obj.position);
 const availibility = gameBoard.map(obj => obj.available);
 const spaceValue = gameBoard.map(obj => obj.value);
 
+function playTurn() {
+
+}
+
+function gameOver() {
+    console.log('the game is over');
+}
+
 function gameState() {
     if(availibility.every(v => v === false)) {
-        console.log('The game over');
+        gameOver();
     } else {
-        console.log('The game is in progress');
+        
     }
 }
 
@@ -111,9 +119,3 @@ let diag2 = [spaceValue[2], spaceValue[4], spaceValue[6]];
 if (col1.every(v => v === col1[0]) || col2.every(v => v === col2[0]) || col3.every(v => v === col3[0]) || row1.every(v => v === row1[0]) || row2.every(v => v === row2[0]) || row3.every(v => v === row3[0]) || diag1.every(v => v === diag1[0]) || diag2.every(v => v === diag2[0])) {
     gameWin();
 }
-
-console.log(spaceValue[0] + '|' + spaceValue[1] + '|' + spaceValue[2]);
-console.log('-|-|-');
-console.log(spaceValue[3] + '|' + spaceValue[4] + '|' + spaceValue[5]);
-console.log('-|-|-');
-console.log(spaceValue[6] + '|' + spaceValue[7] + '|' + spaceValue[8]);
