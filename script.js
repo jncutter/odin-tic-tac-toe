@@ -71,12 +71,6 @@ function createPlayer(name) {
     return {playerName, getScore, addScore};
 } //this works how expected
 
-function gameState() {
-    for (let i = 1; i < 9; i++) {
-
-    }
-}
-
 function gameWin() {
     console.log('somebody won');
 }
@@ -86,6 +80,14 @@ const player = [createPlayer('X'), createPlayer('O')];
 const postions = gameBoard.map(obj => obj.position);
 const availibility = gameBoard.map(obj => obj.available);
 const spaceValue = gameBoard.map(obj => obj.value);
+
+function gameState() {
+    if(availibility.every(v => v === false)) {
+        console.log('The game over');
+    } else {
+        console.log('The game is in progress');
+    }
+}
 
 spaceValue[4] = 'X';
 spaceValue[2] = '0';
