@@ -69,19 +69,6 @@ function createPlayer(name) {
 
 const player = [createPlayer('X'), createPlayer('O')];
 
-const postions = gameBoard.map(obj => obj.position); //put these into a setBoard function
-const availibility = gameBoard.map(obj => obj.available); //that will run when the page opens
-const spaceValue = gameBoard.map(obj => obj.value); //and map it to the reset button to restart
-
-let col1 = [spaceValue[0], spaceValue[3], spaceValue[6]];
-let col2 = [spaceValue[1], spaceValue[4], spaceValue[7]];
-let col3 = [spaceValue[2], spaceValue[5], spaceValue[8]];
-let row1 = [spaceValue[0], spaceValue[1], spaceValue[2]];
-let row2 = [spaceValue[3], spaceValue[4], spaceValue[5]];
-let row3 = [spaceValue[6], spaceValue[7], spaceValue[8]];
-let diag1 = [spaceValue[0], spaceValue[4], spaceValue[8]];
-let diag2 = [spaceValue[2], spaceValue[4], spaceValue[6]];
-
 function gameWin() {
     console.log('somebody won');
 }
@@ -92,23 +79,39 @@ function gameDraw() {
 
 function playTurn() {
     const index = this.dataset.id;
-    if (turn % 2 !== 0) {
-        this.innerHTML = 'X';
-        gameBoard[index].available = false;
-        gameBoard[index].value = 'X';
-        turn++;
-        console.log(gameBoard);
-    } else {
-        this.innerHTML = 'O';
-        gameBoard[index].available = false;
-        gameBoard[index].value = 'O';
-        turn++;
-        console.log(gameBoard);
-    }
-    if (col1.every(v => v === 'X') || col2.every(v => v === 'X') || col3.every(v => v === 'X') || row1.every(v => v === 'X') || row2.every(v => v === 'X') || row3.every(v => v === 'X') || diag1.every(v => v === 'X') || diag2.every(v => v === 'X') || col1.every(v => v === 'O') || col2.every(v => v === 'O') || col3.every(v => v === 'O') || row1.every(v => v === 'O') || row2.every(v => v === 'O') || row3.every(v => v === 'O') || diag1.every(v => v === 'O') || diag2.every(v => v === 'O')) {
-        gameWin();
-    } else if (availibility.every(v => v === false)) {
-        gameDraw();
+
+    if (gameBoard[index].available == true) {
+        if (turn % 2 !== 0) {
+            this.innerHTML = 'X';
+            gameBoard[index].available = false;
+            gameBoard[index].value = 'X';
+            turn++;
+            console.log(gameBoard);
+        } else {
+            this.innerHTML = 'O';
+            gameBoard[index].available = false;
+            gameBoard[index].value = 'O';
+            turn++;
+            console.log(gameBoard);
+        }
+
+        const spaceValue = gameBoard.map(obj => obj.value);
+        const availibility = gameBoard.map(obj => obj.available);
+
+        const col1 = [spaceValue[0], spaceValue[3], spaceValue[6]];
+        const col2 = [spaceValue[1], spaceValue[4], spaceValue[7]];
+        const col3 = [spaceValue[2], spaceValue[5], spaceValue[8]];
+        const row1 = [spaceValue[0], spaceValue[1], spaceValue[2]];
+        const row2 = [spaceValue[3], spaceValue[4], spaceValue[5]];
+        const row3 = [spaceValue[6], spaceValue[7], spaceValue[8]];
+        const diag1 = [spaceValue[0], spaceValue[4], spaceValue[8]];
+        const diag2 = [spaceValue[2], spaceValue[4], spaceValue[6]];
+
+        if (col1.every(v => v === 'X') || col2.every(v => v === 'X') || col3.every(v => v === 'X') || row1.every(v => v === 'X') || row2.every(v => v === 'X') || row3.every(v => v === 'X') || diag1.every(v => v === 'X') || diag2.every(v => v === 'X') || col1.every(v => v === 'O') || col2.every(v => v === 'O') || col3.every(v => v === 'O') || row1.every(v => v === 'O') || row2.every(v => v === 'O') || row3.every(v => v === 'O') || diag1.every(v => v === 'O') || diag2.every(v => v === 'O')) {
+            gameWin();
+        } else if (availibility.every(v => v === false)) {
+            gameDraw();
+        }
     }
 }
 
@@ -129,7 +132,3 @@ gameBoard[5].position.addEventListener('click', playTurn);
 gameBoard[6].position.addEventListener('click', playTurn);
 gameBoard[7].position.addEventListener('click', playTurn);
 gameBoard[8].position.addEventListener('click', playTurn);
-
-if (col1.every(v => v === col1[0]) || col2.every(v => v === col2[0]) || col3.every(v => v === col3[0]) || row1.every(v => v === row1[0]) || row2.every(v => v === row2[0]) || row3.every(v => v === row3[0]) || diag1.every(v => v === diag1[0]) || diag2.every(v => v === diag2[0])) {
-
-}
