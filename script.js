@@ -156,7 +156,7 @@ function resetBoard() {
 
     turn = 1;
 
-    message.innerText = "Get three squares in a row to win. It is Player One's turn";
+    message.innerText = "Get three squares in a row to win. It is Player One's turn.";
 }
 
 gameBoard[0].position.addEventListener('click', playTurn);
