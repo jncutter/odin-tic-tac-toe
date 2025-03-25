@@ -1,13 +1,3 @@
-let topLeft = document.getElementById('top-left');
-let topMiddle = document.getElementById('top-middle');
-let topRight = document.getElementById('top-right');
-let left = document.getElementById('left');
-let middle = document.getElementById('middle');
-let right = document.getElementById('right');
-let bottomLeft = document.getElementById('bottom-left');
-let bottomMiddle = document.getElementById('bottom-middle');
-let bottomRight = document.getElementById('bottom-right');
-
 let xScore = document.getElementById('x-score');
 let oScore = document.getElementById('o-score');
 
@@ -21,47 +11,47 @@ function test() {
 
 const gameBoard = [
     {
-        position: 'topLeft',
+        position: document.getElementById('top-left'),
         available: true,
         value: ' '
     },
     {
-        position: 'topMid',
+        position: document.getElementById('top-middle'),
         available: true,
         value: ' '
     },
     {
-        position: 'topRight',
+        position: document.getElementById('top-right'),
         available: true,
         value: ' '
     },
     {
-        position: 'midLeft',
+        position: document.getElementById('left'),
         available: true,
         value: ' '
     },
     {
-        position: 'midMid',
+        position: document.getElementById('middle'),
         available: true,
         value: ' '
     },
     {
-        position: 'midRight',
+        position: document.getElementById('right'),
         available: true,
         value: ' '
     },
     {
-        position: 'botLeft',
+        position: document.getElementById('bottom-left'),
         available: true,
         value: ' '
     },
     {
-        position: 'botMid',
+        position: document.getElementById('bottom-middle'),
         available: true,
         value: ' '
     },
     {
-        position: 'botRight',
+        position: document.getElementById('bottom-right'),
         available: true,
         value: ' '
     }
@@ -101,12 +91,19 @@ function gameDraw() {
 }
 
 function playTurn() {
+    const index = this.dataset.id;
     if (turn % 2 !== 0) {
         this.innerHTML = 'X';
+        gameBoard[index].available = false;
+        gameBoard[index].value = 'X';
         turn++;
+        console.log(gameBoard);
     } else {
         this.innerHTML = 'O';
+        gameBoard[index].available = false;
+        gameBoard[index].value = 'O';
         turn++;
+        console.log(gameBoard);
     }
     if (col1.every(v => v === 'X') || col2.every(v => v === 'X') || col3.every(v => v === 'X') || row1.every(v => v === 'X') || row2.every(v => v === 'X') || row3.every(v => v === 'X') || diag1.every(v => v === 'X') || diag2.every(v => v === 'X') || col1.every(v => v === 'O') || col2.every(v => v === 'O') || col3.every(v => v === 'O') || row1.every(v => v === 'O') || row2.every(v => v === 'O') || row3.every(v => v === 'O') || diag1.every(v => v === 'O') || diag2.every(v => v === 'O')) {
         gameWin();
@@ -123,15 +120,15 @@ function gameState() {
     }
 }
 
-topLeft.addEventListener('click', playTurn);
-topMiddle.addEventListener('click', playTurn);
-topRight.addEventListener('click', playTurn);
-left.addEventListener('click', playTurn);
-middle.addEventListener('click', playTurn);
-right.addEventListener('click', playTurn);
-bottomLeft.addEventListener('click', playTurn);
-bottomMiddle.addEventListener('click', playTurn);
-bottomRight.addEventListener('click', playTurn);
+gameBoard[0].position.addEventListener('click', playTurn);
+gameBoard[1].position.addEventListener('click', playTurn);
+gameBoard[2].position.addEventListener('click', playTurn);
+gameBoard[3].position.addEventListener('click', playTurn);
+gameBoard[4].position.addEventListener('click', playTurn);
+gameBoard[5].position.addEventListener('click', playTurn);
+gameBoard[6].position.addEventListener('click', playTurn);
+gameBoard[7].position.addEventListener('click', playTurn);
+gameBoard[8].position.addEventListener('click', playTurn);
 
 if (col1.every(v => v === col1[0]) || col2.every(v => v === col2[0]) || col3.every(v => v === col3[0]) || row1.every(v => v === row1[0]) || row2.every(v => v === row2[0]) || row3.every(v => v === row3[0]) || diag1.every(v => v === diag1[0]) || diag2.every(v => v === diag2[0])) {
 
