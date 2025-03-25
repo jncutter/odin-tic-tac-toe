@@ -83,7 +83,7 @@ function gameWin() {
 }
 
 function gameDraw() {
-    console.log('draw');
+    message.innerText = 'This game ends in a draw. Click reset to start a new game.'
 }
 
 function playTurn() {
@@ -94,12 +94,10 @@ function playTurn() {
             this.innerHTML = 'X';
             gameBoard[index].available = false;
             gameBoard[index].value = 'X';
-            console.log(gameBoard);
         } else {
             this.innerHTML = 'O';
             gameBoard[index].available = false;
             gameBoard[index].value = 'O';
-            console.log(gameBoard);
         }
 
         const spaceValue = gameBoard.map(obj => obj.value);
