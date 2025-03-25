@@ -1,5 +1,6 @@
 let xScore = document.getElementById('x-score');
 let oScore = document.getElementById('o-score');
+let message = document.getElementById('message');
 
 let reset = document.getElementById('reset');
 
@@ -67,10 +68,18 @@ function createPlayer(name) {
     return {playerName, getScore, addScore};
 }
 
-const player = [createPlayer('X'), createPlayer('O')];
+const player = [createPlayer('x'), createPlayer('o')];
 
 function gameWin() {
-    console.log('somebody won');
+    if (turn % 2 !== 0) {
+        player[0].addScore();
+        xScore.innerText = player[0].getScore();
+        message.innerText = 'Player One wins! Click reset to start a new game.';
+    } else if (turn % 2 == 0) {
+        player[1].addScore();
+        oScore.innerText = player[1].getScore();
+        message.innerText = 'Player Two wins! Click reset to start a new game.';
+    }
 }
 
 function gameDraw() {
@@ -85,13 +94,11 @@ function playTurn() {
             this.innerHTML = 'X';
             gameBoard[index].available = false;
             gameBoard[index].value = 'X';
-            turn++;
             console.log(gameBoard);
         } else {
             this.innerHTML = 'O';
             gameBoard[index].available = false;
             gameBoard[index].value = 'O';
-            turn++;
             console.log(gameBoard);
         }
 
@@ -112,6 +119,8 @@ function playTurn() {
         } else if (availibility.every(v => v === false)) {
             gameDraw();
         }
+
+        turn++;
     }
 }
 
