@@ -94,10 +94,12 @@ function playTurn() {
             this.innerText = 'X';
             gameBoard[index].available = false;
             gameBoard[index].value = 'X';
+            message.innerText = "It is Player Two's turn.";
         } else {
             this.innerText = 'O';
             gameBoard[index].available = false;
             gameBoard[index].value = 'O';
+            message.innerText = "It is Player One's turn.";
         }
 
         const spaceValue = gameBoard.map(obj => obj.value);
