@@ -91,11 +91,11 @@ function playTurn() {
 
     if (gameBoard[index].available == true) {
         if (turn % 2 !== 0) {
-            this.innerHTML = 'X';
+            this.innerText = 'X';
             gameBoard[index].available = false;
             gameBoard[index].value = 'X';
         } else {
-            this.innerHTML = 'O';
+            this.innerText = 'O';
             gameBoard[index].available = false;
             gameBoard[index].value = 'O';
         }
@@ -122,12 +122,39 @@ function playTurn() {
     }
 }
 
-function gameState() {
-    if(availibility.every(v => v === false)) {
-        gameDraw();
-    } else {
-        playTurn();
-    }
+function resetBoard() {
+    gameBoard[0].available = true;
+    gameBoard[0].value = ' ';
+    gameBoard[1].available = true;
+    gameBoard[1].value = ' ';
+    gameBoard[2].available = true;
+    gameBoard[2].value = ' ';
+    gameBoard[3].available = true;
+    gameBoard[3].value = ' ';
+    gameBoard[4].available = true;
+    gameBoard[4].value = ' ';
+    gameBoard[5].available = true;
+    gameBoard[5].value = ' ';
+    gameBoard[6].available = true;
+    gameBoard[6].value = ' ';
+    gameBoard[7].available = true;
+    gameBoard[7].value = ' ';
+    gameBoard[8].available = true;
+    gameBoard[8].value = ' ';
+
+    gameBoard[0].position.innerText = ' ';
+    gameBoard[1].position.innerText = ' ';
+    gameBoard[2].position.innerText = ' ';
+    gameBoard[3].position.innerText = ' ';
+    gameBoard[4].position.innerText = ' ';
+    gameBoard[5].position.innerText = ' ';
+    gameBoard[6].position.innerText = ' ';
+    gameBoard[7].position.innerText = ' ';
+    gameBoard[8].position.innerText = ' ';
+
+    turn = 1;
+
+    message.innerText = "Get three squares in a row to win. It is Player One's turn";
 }
 
 gameBoard[0].position.addEventListener('click', playTurn);
@@ -139,3 +166,5 @@ gameBoard[5].position.addEventListener('click', playTurn);
 gameBoard[6].position.addEventListener('click', playTurn);
 gameBoard[7].position.addEventListener('click', playTurn);
 gameBoard[8].position.addEventListener('click', playTurn);
+
+reset.addEventListener('click', resetBoard);
