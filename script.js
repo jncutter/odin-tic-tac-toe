@@ -13,16 +13,11 @@ let oScore = document.getElementById('o-score');
 
 let reset = document.getElementById('reset');
 
+let turn = 1;
+
 function test() {
     console.log('This test was successful');
 }
-
-function testInnerEdit() {
-    this.innerHTML = 'test';
-}//this function properly adds text to the inner html of the clicked div
-
-topLeft.addEventListener('click', testInnerEdit);
-middle.addEventListener('click', testInnerEdit);
 
 const gameBoard = [
     {
@@ -80,13 +75,13 @@ function createPlayer(name) {
     const addScore = () => score++;
 
     return {playerName, getScore, addScore};
-} //this works how expected
+}
 
 const player = [createPlayer('X'), createPlayer('O')];
 
-const postions = gameBoard.map(obj => obj.position);
-const availibility = gameBoard.map(obj => obj.available);
-const spaceValue = gameBoard.map(obj => obj.value);
+const postions = gameBoard.map(obj => obj.position); //put these into a setBoard function
+const availibility = gameBoard.map(obj => obj.available); //that will run when the page opens
+const spaceValue = gameBoard.map(obj => obj.value); //and map it to the reset button to restart
 
 let col1 = [spaceValue[0], spaceValue[3], spaceValue[6]];
 let col2 = [spaceValue[1], spaceValue[4], spaceValue[7]];
@@ -98,16 +93,25 @@ let diag1 = [spaceValue[0], spaceValue[4], spaceValue[8]];
 let diag2 = [spaceValue[2], spaceValue[4], spaceValue[6]];
 
 function gameWin() {
-
+    console.log('somebody won');
 }
 
 function gameDraw() {
-
+    console.log('draw');
 }
 
 function playTurn() {
-    if (col1.every(v => v === col1[0]) || col2.every(v => v === col2[0]) || col3.every(v => v === col3[0]) || row1.every(v => v === row1[0]) || row2.every(v => v === row2[0]) || row3.every(v => v === row3[0]) || diag1.every(v => v === diag1[0]) || diag2.every(v => v === diag2[0])) {
-
+    if (turn % 2 !== 0) {
+        this.innerHTML = 'X';
+        turn++;
+    } else {
+        this.innerHTML = 'O';
+        turn++;
+    }
+    if (col1.every(v => v === 'X') || col2.every(v => v === 'X') || col3.every(v => v === 'X') || row1.every(v => v === 'X') || row2.every(v => v === 'X') || row3.every(v => v === 'X') || diag1.every(v => v === 'X') || diag2.every(v => v === 'X') || col1.every(v => v === 'O') || col2.every(v => v === 'O') || col3.every(v => v === 'O') || row1.every(v => v === 'O') || row2.every(v => v === 'O') || row3.every(v => v === 'O') || diag1.every(v => v === 'O') || diag2.every(v => v === 'O')) {
+        gameWin();
+    } else if (availibility.every(v => v === false)) {
+        gameDraw();
     }
 }
 
@@ -118,6 +122,16 @@ function gameState() {
         playTurn();
     }
 }
+
+topLeft.addEventListener('click', playTurn);
+topMiddle.addEventListener('click', playTurn);
+topRight.addEventListener('click', playTurn);
+left.addEventListener('click', playTurn);
+middle.addEventListener('click', playTurn);
+right.addEventListener('click', playTurn);
+bottomLeft.addEventListener('click', playTurn);
+bottomMiddle.addEventListener('click', playTurn);
+bottomRight.addEventListener('click', playTurn);
 
 if (col1.every(v => v === col1[0]) || col2.every(v => v === col2[0]) || col3.every(v => v === col3[0]) || row1.every(v => v === row1[0]) || row2.every(v => v === row2[0]) || row3.every(v => v === row3[0]) || diag1.every(v => v === diag1[0]) || diag2.every(v => v === diag2[0])) {
 
